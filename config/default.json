@@ -1,7 +1,8 @@
 //make a file called local.json and copy this in and add your creds
 {
 	"cleverbotIO": {
-		"apiUser": "example",
-		"apiKey": "123456"
+		"apiUser": "example", //chance this with creds from https://cleverbot.io/keys
+		"apiKey": "123456", //chance this with creds from https://cleverbot.io/keys
+		"sessionName": "discordBot"
 	}
 }
