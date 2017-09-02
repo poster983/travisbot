@@ -24,6 +24,7 @@
   "homepage": "https://github.com/poster983/travisbot#readme",
   "dependencies": {
     "cleverbot.io": "^1.0.4",
-    "config": "^1.26.2"
+    "config": "^1.26.2",
+    "discord.js": "^11.1.0"
   }
 }
