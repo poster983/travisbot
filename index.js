@@ -19,9 +19,12 @@ bot.create(function (err, session) {
 	  console.log(response); // Will likely be: "Living in a lonely world"
 	});
 });*/
+console.log("HII")
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
+  console.log("Add to discord by going to:", "https://discordapp.com/oauth2/authorize?&client_id=" + client.user.id + "&scope=bot&permissions=0")
 });
+
 
 client.on('message', msg => {
   if (msg.content === 'ping') {
@@ -30,4 +33,4 @@ client.on('message', msg => {
 });
 
 
-client.login('token');
+client.login(config.get("discord.token"));
