@@ -1,0 +1,29 @@
+{
+  "name": "travisbot",
+  "version": "1.0.0",
+  "description": "A really bad discord bot for cleverbot.io",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poster983/travisbot.git"
+  },
+  "keywords": [
+    "discord",
+    "cleverbot",
+    "bot"
+  ],
+  "author": "Joseph Hassell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/poster983/travisbot/issues"
+  },
+  "homepage": "https://github.com/poster983/travisbot#readme",
+  "dependencies": {
+    "cleverbot.io": "^1.0.4",
+    "config": "^1.26.2"
+  }
+}

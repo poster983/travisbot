@@ -1,0 +1,7 @@
+//make a file called local.json and copy this in and add your creds
+{
+	"cleverbotIO": {
+		"apiUser": "example",
+		"apiKey": "123456"
+	}
+}
