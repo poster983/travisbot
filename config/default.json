@@ -9,6 +9,6 @@
 		"token": "123456" // chance this with creds from https://discordapp.com/developers
 	},
 	"bot": {
-		"prefix": "`"
+		"prefix": ","
 	}
 }

@@ -20,29 +20,42 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-//var cleverbot = require("cleverbot.io");
+
 var config = require("config");
-const Discord = require("discord.js");
-const client = new Discord.Client();
 var commands = require("./commands/index.js")
-/*bot = new cleverbot(config.get("cleverbotIO.apiUser"), config.get("cleverbotIO.apiKey"));
+const Commando = require('discord.js-commando');
+const path = require('path');
 
-bot.setNick(config.get("cleverbotIO.sessionName"))
+const client = new Commando.Client({
+    owner: '136272411329822720',
+    commandPrefix: config.get("bot.prefix"),
+    disableEveryone: true
+});
 
-console.log()
+client.registry
+    // Registers your custom command groups
+    .registerGroups([
+        ['fun', 'Fun commands'],
+        ['sound', 'Sound Commands'],
+        ['other', 'Some other group']
+    ])
 
-bot.create(function (err, session) {
-	if(err) {
-		console.error("Error:", err)
-	}
-  bot.ask("Just a small town girl", function (err, response) {
-	  	if(err) {
-			console.error("Error:", err)
-		}
-	  console.log(response); // Will likely be: "Living in a lonely world"
-	});
-});*/
+    
+    // Registers all built-in groups, commands, and argument types
+    .registerDefaults()
 
+    // Registers all of your commands in the ./commands/ directory
+    .registerCommandsIn(path.join(__dirname, 'commands'));
+
+
+client.on('ready', () => {
+    console.log('Logged in!');
+    client.user.setGame("Help: " + config.get("bot.prefix") + "help");
+    // or if on master, client.user.setActivity('game');
+});
+
+client.login(config.get("discord.token"));
+/*
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   console.log("Add to discord by going to:", "https://discordapp.com/oauth2/authorize?&client_id=" + client.user.id + "&scope=bot&permissions=0")
@@ -81,3 +94,4 @@ client.on('message', msg => {
 
 
 client.login(config.get("discord.token"));
+*/

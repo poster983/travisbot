@@ -1,7 +1,7 @@
 {
   "name": "travisbot",
   "version": "1.0.0",
-  "description": "A really bad discord bot for cleverbot.io",
+  "description": "A really bad discord bot with dumb commands",
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js",
@@ -25,6 +25,8 @@
   "dependencies": {
     "cleverbot.io": "^1.0.4",
     "config": "^1.26.2",
-    "discord.js": "^11.1.0"
+    "discord.js": "^11.1.0",
+    "discord.js-commando": "^0.9.0",
+    "md5": "^2.2.1"
   }
 }
