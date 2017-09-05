@@ -20,7 +20,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-const { Command } = require('discord.js-commando');
+const { Client, Command } = require('discord.js-commando');
+
 
 
 module.exports = class ReplyCommand extends Command {
@@ -34,6 +35,28 @@ module.exports = class ReplyCommand extends Command {
         });
     }
     run(msg) {
-        return msg.say('Hi, I\'m awake!');
+        msg.member.voiceChannel.join()
+        .then(connection => { // Connection is an instance of VoiceConnection
+          msg.say('I have successfully connected to the channel!');
+          const dispatcher = connection.playArbitraryInput('../../sounds/catParadox.mp3');
+          console.log(dispatcher)
+          //const dispatcher = connection.playArbitraryInput('http://cdn.frustra.org/sounds/sound/vo/core02/fact17.mp3?id=352');
+            dispatcher.on('end', () => {
+              msg.member.voiceChannel.leave()
+            });
+
+            dispatcher.on('error', e => {
+              // Catch any errors that may arise
+              console.log(e);
+              msg.member.voiceChannel.leave()
+            });
+
+            dispatcher.end();
+
+        })
+        .catch(console.log);
+        
+        
+        //return msg.say('Hi, I\'m awake!');
     }
 }
