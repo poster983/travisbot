@@ -2,8 +2,7 @@
 {
 	"cleverbotIO": {
 		"apiUser": "example", //chance this with creds from https://cleverbot.io/keys
-		"apiKey": "123456", //chance this with creds from https://cleverbot.io/keys
-		"sessionName": "discordBot"
+		"apiKey": "123456" //chance this with creds from https://cleverbot.io/keys
 	},
 	"discord": {
 		"token": "123456" // chance this with creds from https://discordapp.com/developers

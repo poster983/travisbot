@@ -24,6 +24,8 @@ SOFTWARE.
 var config = require("config");
 var commands = require("./commands/index.js")
 const Commando = require('discord.js-commando');
+const sqlite = require('sqlite');
+
 const path = require('path');
 
 const client = new Commando.Client({
@@ -48,6 +50,11 @@ client.registry
     .registerCommandsIn(path.join(__dirname, 'commands'));
 
 
+
+client.setProvider(
+    sqlite.open(path.join(__dirname, '/db/settings.sqlite')).then(db => new Commando.SQLiteProvider(db))
+).catch(console.error);
+
 client.on('ready', () => {
     console.log('Logged in!');
     client.user.setGame("Help: " + config.get("bot.prefix") + "help");
@@ -55,13 +62,13 @@ client.on('ready', () => {
 });
 
 client.login(config.get("discord.token"));
-/*
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   console.log("Add to discord by going to:", "https://discordapp.com/oauth2/authorize?&client_id=" + client.user.id + "&scope=bot&permissions=0")
 });
 
-
+/*
 client.on('message', msg => {
 	
 	if(msg.content === ";;stop") {
