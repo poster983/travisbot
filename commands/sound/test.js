@@ -23,7 +23,7 @@ SOFTWARE.
 const { Client, Command } = require('discord.js-commando');
 
 
-
+/*
 module.exports = class ReplyCommand extends Command {
     constructor(client) {
         super(client, {
@@ -38,9 +38,10 @@ module.exports = class ReplyCommand extends Command {
         msg.member.voiceChannel.join()
         .then(connection => { // Connection is an instance of VoiceConnection
           msg.say('I have successfully connected to the channel!');
-          const dispatcher = connection.playArbitraryInput('../../sounds/catParadox.mp3');
-          console.log(dispatcher)
-          //const dispatcher = connection.playArbitraryInput('http://cdn.frustra.org/sounds/sound/vo/core02/fact17.mp3?id=352');
+          //const dispatcher = connection.playFile('../../sounds/catParadox.mp3');
+          
+          const dispatcher = connection.playArbitraryInput('http://cdn.frustra.org/sounds/sound/vo/core02/fact17.mp3?id=352');
+          //console.log(dispatcher)
             dispatcher.on('end', () => {
               msg.member.voiceChannel.leave()
             });
@@ -59,4 +60,4 @@ module.exports = class ReplyCommand extends Command {
         
         //return msg.say('Hi, I\'m awake!');
     }
-}
+}*/
